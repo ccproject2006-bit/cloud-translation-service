@@ -20,8 +20,8 @@ body {
   background: #fff;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-  max-width: 600px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 650px;
   width: 100%;
 }
 
@@ -29,28 +29,36 @@ body {
 h1 {
   text-align: center;
   color: #2980b9;
-  margin-bottom: 20px;
-  font-size: 26px;
+  margin-bottom: 25px;
+  font-size: 28px;
 }
 
-/* Input area */
+/* Labels */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: bold;
+  color: #444;
+  font-size: 15px;
+}
+
+/* Textarea */
 textarea {
   width: 100%;
   height: 120px;
   padding: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
   resize: none;
+  background: #fdfdfd;
 }
 
-/* Label */
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #444;
+/* File input */
+input[type="file"] {
+  margin-bottom: 20px;
+  font-size: 15px;
 }
 
 /* Dropdown */
@@ -65,7 +73,7 @@ select {
   cursor: pointer;
 }
 
-/* Buttons */
+/* Button styling */
 button {
   background: #2980b9;
   color: white;
@@ -74,17 +82,39 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  margin: 5px;
-  transition: background 0.3s ease;
+  margin: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background: #1f6391;
+  transform: scale(1.05);
+}
+
+/* Special voice button */
+button.voice {
+  background: #e67e22;
+}
+
+button.voice:hover {
+  background: #bf6519;
 }
 
 /* Output section */
+.output-section {
+  margin-top: 25px;
+}
+
+.output-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #2980b9;
+  font-size: 16px;
+  text-align: left;
+}
+
 #output {
-  margin-top: 20px;
   padding: 15px;
   background: #f4f8fb;
   border-radius: 10px;
@@ -93,14 +123,5 @@ button:hover {
   font-size: 18px;
   line-height: 1.5;
   color: #222;
-}
-
-/* Output title */
-.output-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-  display: block;
-  color: #2980b9;
-  font-size: 16px;
-  text-align: left;
+  white-space: pre-wrap; /* Keeps formatting */
 }
