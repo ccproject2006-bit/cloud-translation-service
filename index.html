@@ -2,8 +2,8 @@
   <div class="container">
     <h1>🌐 Cloud Translation Service</h1>
 
+    <label for="inputText">Enter Text:</label>
     <textarea id="inputText" placeholder="Type your text here..."></textarea>
-    <br />
 
     <label for="targetLang">Translate to:</label>
     <select id="targetLang">
@@ -22,12 +22,15 @@
       <option value="it">Italian</option>
       <option value="pt">Portuguese</option>
     </select>
-    <br />
 
-    <button onclick="translateText()">Translate</button>
+    <div style="text-align:center;">
+      <button onclick="translateText()">🌍 Translate</button>
+      <button onclick="copyText()">📋 Copy Translation</button>
+    </div>
 
-    <div id="output">Your translated text will appear here...</div>
-    <br />
-    <button onclick="copyText()">📋 Copy Translation</button>
+    <div class="output-section">
+      <span class="output-label">Translation:</span>
+      <div id="output">Your translated text will appear here...</div>
+    </div>
   </div>
 </body>
