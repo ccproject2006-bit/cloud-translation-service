@@ -1,18 +1,28 @@
-function translateText() {
+async function translateText() {
   const input = document.getElementById("inputText").value;
   const lang = document.getElementById("targetLang").value;
 
-  // Fake translations (for demo only)
-  let translated = "";
-  if (lang === "es") {
-    translated = "Hola mundo (demo)";
-  } else if (lang === "fr") {
-    translated = "Bonjour le monde (demo)";
-  } else if (lang === "hi") {
-    translated = "नमस्ते दुनिया (demo)";
-  } else {
-    translated = "[Translation not available]";
+  if (!input) {
+    document.getElementById("output").innerText = "[Please type something]";
+    return;
   }
 
-  document.getElementById("output").innerText = translated;
+  try {
+    const response = await fetch("https://libretranslate.de/translate", {
+      method: "POST",
+      body: JSON.stringify({
+        q: input,
+        source: "auto",   // auto-detect input language
+        target: lang,
+        format: "text"
+      }),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const data = await response.json();
+    document.getElementById("output").innerText = data.translatedText;
+  } catch (error) {
+    document.getElementById("output").innerText = "[Error: Could not translate]";
+    console.error(error);
+  }
 }
