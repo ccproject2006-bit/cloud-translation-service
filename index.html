@@ -1,36 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Translation Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <div class="container">
-    <h1>🌐 Cloud Translation Service</h1>
-
-    <label for="inputText">Enter Text:</label>
-    <textarea id="inputText" placeholder="Type your text here..."></textarea>
-
-    <label for="targetLang">Translate to:</label>
-    <select id="targetLang">
-      <option value="es">Spanish</option>
-      <option value="fr">French</option>
-      <option value="hi">Hindi</option>
-      <option value="te">Telugu</option>
-      <option value="ta">Tamil</option>
-      <option value="ml">Malayalam</option>
-      <option value="de">German</option>
-      <option value="zh">Chinese (Simplified)</option>
-      <option value="ar">Arabic</option>
-      <option value="ru">Russian</option>
-      <option value="ja">Japanese</option>
-      <option value="ko">Korean</option>
-      <option value="it">Italian</option>
-      <option value="pt">Portuguese</option>
-    </select>
-
-    <div style="text-align:center;">
-      <button onclick="translateText()">🌍 Translate</button>
-      <button onclick="copyText()">📋 Copy Translation</button>
+    <div class="container">
+        <header>
+            <h1>Cloud Translation Service</h1>
+            <p class="subtitle">Translate text, documents, and voice with our free service</p>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="text-tab">Text Translation</button>
+            <button class="tab-button" data-tab="file-tab">File Translation</button>
+            <button class="tab-button" data-tab="voice-tab">Voice Translation</button>
+        </div>
+        
+        <div class="tab-content active" id="text-tab">
+            <div class="input-group">
+                <label for="inputText">Enter Text to Translate:</label>
+                <textarea id="inputText" placeholder="Type or paste text here...">my name is geetha</textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="targetLang">Translate to:</label>
+                <select id="targetLang">
+                    <option value="te">Telugu</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ar">Arabic</option>
+                </select>
+            </div>
+            
+            <button id="translateBtn">Translate Text</button>
+            
+            <div class="status" id="statusMsg"></div>
+            
+            <div class="result-container">
+                <div class="result-title">Translation:</div>
+                <div id="translatedText">Your translated text will appear here...</div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="file-tab">
+            <div class="input-group">
+                <label for="fileInput">Upload a text file to translate:</label>
+                <div class="file-upload">
+                    <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx">
+                    <p>Supported formats: TXT, PDF, DOC, DOCX</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="fileTargetLang">Translate to:</label>
+                <select id="fileTargetLang">
+                    <option value="te">Telugu</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ar">Arabic</option>
+                </select>
+            </div>
+            
+            <button id="translateFileBtn">Translate File</button>
+            
+            <div class="status" id="fileStatusMsg"></div>
+            
+            <div class="result-container">
+                <div class="result-title">File Translation:</div>
+                <div id="fileTranslatedText">Your file translation will appear here...</div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="voice-tab">
+            <div class="input-group">
+                <label>Record your voice to translate:</label>
+                <div class="recorder-controls">
+                    <button id="recordButton">Start Recording</button>
+                    <button id="stopButton" disabled>Stop Recording</button>
+                </div>
+                <div id="recordingStatus">Not recording</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="voiceTargetLang">Translate to:</label>
+                <select id="voiceTargetLang">
+                    <option value="te">Telugu</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ar">Arabic</option>
+                </select>
+            </div>
+            
+            <button id="translateVoiceBtn">Translate Recording</button>
+            
+            <div class="status" id="voiceStatusMsg"></div>
+            
+            <div class="result-container">
+                <div class="result-title">Voice Translation:</div>
+                <div id="voiceTranslatedText">Your voice translation will appear here...</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Powered by free translation APIs | No registration required</p>
+        </footer>
     </div>
 
-    <div class="output-section">
-      <span class="output-label">Translation:</span>
-      <div id="output">Your translated text will appear here...</div>
-    </div>
-  </div>
+    <script src="app.js"></script>
 </body>
+</html>
